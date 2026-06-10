@@ -1,0 +1,57 @@
+[Ll]ibrary/
+[Tt]emp/
+[Oo]bj/
+[Bb]uild/
+[Bb]uilds/
+[Ll]ogs/
+[Uu]serSettings/
+
+# Addressables build artifacts
+/[Aa]ssets/AddressableAssetsData/*/*.bin*
+/[Aa]ssets/AddressableAssetsData/*/*.json
+/[Aa]ssets/AddressableAssetsData/*/*.hash
+/[Aa]ssets/AddressableAssetsData/link.xml
+/[Aa]ssets/AddressableAssetsData/catalog.json
+/[Aa]ssets/AddressableAssetsData/catalog.hash
+
+/ServerData/
+/Library/com.unity.addressables/
+/Assets/StreamingAssets/aa*
+
+# Visual Studio / Rider
+.vs/
+.vscode/
+.idea/
+*.csproj
+*.sln
+*.slnx
+*.user
+*.userprefs
+*.pidb
+*.booproj
+
+# OS
+.DS_Store
+Thumbs.db
+
+Packages/*
+!Packages/manifest.json
+!Packages/packages-lock.json
+
+MemoryCaptures/
+
+* text=auto
+
+*.cs text eol=lf
+*.shader text eol=lf
+*.compute text eol=lf
+
+*.asset text eol=lf
+*.meta text eol=lf
+*.unity text eol=lf
+*.prefab text eol=lf
+*.mat text eol=lf
+*.anim text eol=lf
+*.controller text eol=lf
+
+*.json text eol=lf
