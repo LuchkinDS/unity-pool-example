@@ -3,20 +3,25 @@ using UnityEngine;
 
 namespace Game.Components
 {
-    public class Bullet: MonoBehaviour, IObjectPoolable<Bullet, BulletContext>
+    public class Bullet: BasePoolable<Bullet, BulletContext>
     {
-        public void ReturnToPool()
+        public override void ReturnToPool()
         {
-            throw new System.NotImplementedException();
+            Pool.Release(this);
         }
 
-        public void Setup(BulletContext context)
+        public override void Setup(BulletContext context)
         {
-            throw new System.NotImplementedException();
+            transform.position = context.Position;
         }
     }
 
     public struct BulletContext
     {
+        public Vector3 Position { get; }
+        public BulletContext(Vector3 position)
+        {
+            Position = position;
+        }
     }
 }

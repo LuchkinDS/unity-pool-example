@@ -17,8 +17,8 @@ namespace Game.Boot
             builder.RegisterInstance(bulletPrefab);
             builder.RegisterInstance(targetPrefab);
             
-            builder.Register<PoolService<Bullet>>(Lifetime.Singleton);
-            builder.Register<PoolService<Target>>(Lifetime.Singleton);
+            builder.Register<PoolService<Bullet, BulletContext>>(Lifetime.Singleton);
+            builder.Register<PoolService<Target, TargetContext>>(Lifetime.Singleton);
             
             builder.Register<PrefabFactory<Bullet>>(Lifetime.Singleton).As<IFactory<Bullet>>();
             builder.Register<PrefabFactory<Target>>(Lifetime.Singleton).As<IFactory<Target>>();

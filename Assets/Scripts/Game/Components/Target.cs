@@ -3,20 +3,26 @@ using UnityEngine;
 
 namespace Game.Components
 {
-    public class Target: MonoBehaviour, IObjectPoolable<Target, TargetContext>
+    public class Target: BasePoolable<Target, TargetContext>
     {
-        public void ReturnToPool()
+        public override void ReturnToPool()
         {
-            throw new System.NotImplementedException();
+            Pool.Release(this);
         }
 
-        public void Setup(TargetContext context)
+        public override void Setup(TargetContext context)
         {
-            throw new System.NotImplementedException();
+            transform.position = context.Position;
         }
     }
 
     public struct TargetContext
     {
+        public Vector3 Position { get; }
+
+        public TargetContext(Vector3 position)
+        {
+            Position = position;
+        }
     }
 }

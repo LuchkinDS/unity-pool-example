@@ -6,10 +6,13 @@ namespace Game.Boot
 {
     public class EntryPoint: IStartable
     {
-        private readonly PoolService<Bullet> _bulletPool;
-        private readonly PoolService<Target> _targetPool;
+        private readonly PoolService<Bullet, BulletContext> _bulletPool;
+        private readonly PoolService<Target, TargetContext> _targetPool;
 
-        public EntryPoint(PoolService<Bullet> bulletPool, PoolService<Target> targetPool)
+        public EntryPoint(
+            PoolService<Bullet, BulletContext> bulletPool, 
+            PoolService<Target, TargetContext> targetPool
+        )
         {
             _bulletPool = bulletPool;
             _targetPool = targetPool;

@@ -3,15 +3,15 @@ using UnityEngine.Pool;
 
 namespace Game.Pool
 {
-    public class PoolService<T> where T : Component
+    public class PoolService<T, TContext> where T : BasePoolable<T, TContext>
     {
         private readonly IFactory<T> _factory;
-        public ObjectPool<T> Pool { get; private set; }
+        private readonly ObjectPool<T> _pool;
 
         public PoolService(IFactory<T> factory)
         {
             _factory = factory;
-            Pool = new ObjectPool<T>(
+            _pool = new ObjectPool<T>(
                 createFunc: Create,
                 actionOnGet: item => item.gameObject.SetActive(true),
                 actionOnRelease: item => item.gameObject.SetActive(false),
@@ -19,16 +19,19 @@ namespace Game.Pool
             );
         }
 
-        private T Create()
-        {
-            return _factory.Create();
+        public T Get() => _pool.Get();
+
+        private T Create() {
+            var go = _factory.Create();
+            go.SetPool(_pool);
+            return go;
         }
 
         public void Warmup(int count = 10)
         {
             for (var i = 0; i < count; i++)
             {
-                Pool.Release(Create());
+                _pool.Release(Create());
             }
         }
     }
