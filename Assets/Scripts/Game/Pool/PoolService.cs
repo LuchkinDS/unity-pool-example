@@ -3,7 +3,7 @@ using UnityEngine.Pool;
 
 namespace Game.Pool
 {
-    public class PoolService<T, TContext> where T : BasePoolable<T, TContext>
+    public class PoolService<T, TContext> where T : Component, IObjectPoolable<T, TContext>
     {
         private readonly IFactory<T> _factory;
         private readonly ObjectPool<T> _pool;
@@ -23,7 +23,7 @@ namespace Game.Pool
 
         private T Create() {
             var go = _factory.Create();
-            go.SetPool(_pool);
+            go.SetReturnAction(() => _pool.Release(go));
             return go;
         }
 

@@ -1,16 +1,24 @@
+using System;
 using Game.Pool;
 using UnityEngine;
 
 namespace Game.Components
 {
-    public class Target: BasePoolable<Target, TargetContext>
+    public class Target: MonoBehaviour, IObjectPoolable<Target, TargetContext>
     {
-        public override void ReturnToPool()
+        private Action _action;
+
+        public void SetReturnAction(Action action)
         {
-            Pool.Release(this);
+            _action = action;
         }
 
-        public override void Setup(TargetContext context)
+        public void ReturnToPool()
+        {
+            _action?.Invoke();
+        }
+
+        public void Setup(TargetContext context)
         {
             transform.position = context.Position;
         }

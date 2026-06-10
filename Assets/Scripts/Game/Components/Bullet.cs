@@ -1,16 +1,24 @@
+using System;
 using Game.Pool;
 using UnityEngine;
+using UnityEngine.Pool;
 
 namespace Game.Components
 {
-    public class Bullet: BasePoolable<Bullet, BulletContext>
+    public class Bullet: MonoBehaviour, IObjectPoolable<Bullet, BulletContext>
     {
-        public override void ReturnToPool()
+        private Action _action;
+        public void SetReturnAction(Action action)
         {
-            Pool.Release(this);
+            _action = action;
         }
 
-        public override void Setup(BulletContext context)
+        public void ReturnToPool()
+        {
+            _action?.Invoke();
+        }
+
+        public void Setup(BulletContext context)
         {
             transform.position = context.Position;
         }
