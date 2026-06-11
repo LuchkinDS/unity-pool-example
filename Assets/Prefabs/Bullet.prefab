@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 7043212765636092188}
   - component: {fileID: 3423182116002277989}
   - component: {fileID: 8991349663672900324}
+  - component: {fileID: -5899812360480399633}
   m_Layer: 0
   m_Name: Bullet
   m_TagString: Untagged
@@ -100,3 +101,39 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2ed91979226c4cf9af737fd8e48b5492, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!58 &-5899812360480399633
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7370854012530738398}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_CompositeOperation: 0
+  m_CompositeOrder: 0
+  m_Offset: {x: 0, y: 0}
+  m_Radius: 0.5

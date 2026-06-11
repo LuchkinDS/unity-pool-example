@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace Game.Components
 {
-    public class Bullet: MonoBehaviour, IObjectPoolable<Bullet, BulletContext>
+    public class Bullet: MonoBehaviour, IObjectPoolable<BulletContext>
     {
         private Action _action;
         private Vector3 _direction;

@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace Game.Components
 {
-    public class Target: MonoBehaviour, IObjectPoolable<Target, TargetContext>
+    public class Target: MonoBehaviour, IObjectPoolable<TargetContext>
     {
         private Action _action;
 
