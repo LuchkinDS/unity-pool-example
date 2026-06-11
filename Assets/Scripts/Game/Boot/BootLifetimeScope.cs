@@ -23,6 +23,8 @@ namespace Game.Boot
             builder.Register<PrefabFactory<Bullet>>(Lifetime.Singleton).As<IFactory<Bullet>>();
             builder.Register<PrefabFactory<Target>>(Lifetime.Singleton).As<IFactory<Target>>();
 
+            builder.RegisterComponentInHierarchy<Spawner>();
+
             builder.RegisterEntryPoint<EntryPoint>();
         }
     }
