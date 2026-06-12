@@ -23,7 +23,11 @@ namespace Game.Pool
 
         private T Create() {
             var go = _factory.Create();
-            go.SetReturnAction(() => _pool.Release(go));
+            go.SetReturnAction(() =>
+            {
+                if (!go.gameObject.activeSelf) return;
+                _pool.Release(go);
+            });
             return go;
         }
 
